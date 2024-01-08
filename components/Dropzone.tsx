@@ -21,8 +21,8 @@ const Dropzone = () => {
   const onDrop = (acceptedFiles: File[]) => {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();
-      reader.onabort = () => console.log('file reading is aborted');
-      reader.onerror = () => console.log('file reading has failed');
+      reader.onabort = () => console.warn('file reading is aborted');
+      reader.onerror = () => console.warn('file reading has failed');
       reader.onload = async () => {
         await uploadPost(file);
       };
